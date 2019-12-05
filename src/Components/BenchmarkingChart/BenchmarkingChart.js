@@ -12,7 +12,7 @@ import PropTypes from "prop-types";
 export class BenchmarkingChart extends React.Component {
   render() {
     return (
-      <XYPlot width={300} height={300}>
+      <XYPlot width={1200} height={600}>
         <HorizontalGridLines />
         <LineSeries data={this.props.data} />
         <XAxis />
@@ -23,5 +23,5 @@ export class BenchmarkingChart extends React.Component {
 }
 
 BenchmarkingChart.propTypes = {
-  data: PropTypes.string
+  data: PropTypes.array
 };
