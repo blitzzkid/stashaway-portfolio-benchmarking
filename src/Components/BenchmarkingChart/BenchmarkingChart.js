@@ -7,6 +7,7 @@ import {
   HorizontalGridLines,
   LineSeries
 } from "react-vis";
+import PropTypes from "prop-types";
 
 export class BenchmarkingChart extends React.Component {
   render() {
@@ -20,3 +21,7 @@ export class BenchmarkingChart extends React.Component {
     );
   }
 }
+
+BenchmarkingChart.propTypes = {
+  data: PropTypes.string
+};
