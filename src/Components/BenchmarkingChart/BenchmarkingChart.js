@@ -13,13 +13,7 @@ export class BenchmarkingChart extends React.Component {
     return (
       <XYPlot width={300} height={300}>
         <HorizontalGridLines />
-        <LineSeries
-          data={[
-            { x: 1, y: 10 },
-            { x: 2, y: 5 },
-            { x: 3, y: 15 }
-          ]}
-        />
+        <LineSeries data={this.props.data} />
         <XAxis />
         <YAxis />
       </XYPlot>
