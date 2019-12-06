@@ -5,7 +5,8 @@ import {
   XAxis,
   YAxis,
   HorizontalGridLines,
-  LineSeries
+  LineSeries,
+  DiscreteColorLegend
 } from "react-vis";
 import PropTypes from "prop-types";
 import "./BenchmarkingChart.css";
@@ -17,7 +18,7 @@ export class BenchmarkingChart extends React.Component {
         <h5 className="chart__heading">
           Portfolio Value Based on gross returns
         </h5>
-        <h5 className="chart_description">
+        <h5 className="chart__description">
           Gross returns and exchange rates sourced from Bloomberg as of 2th May
           2019
         </h5>
@@ -47,9 +48,26 @@ export class BenchmarkingChart extends React.Component {
             data={this.props.data}
             opacity={1}
             strokeStyle="solid"
+            stroke="#3BDCE3"
             style={{}}
           />
+          <DiscreteColorLegend
+            colors={["#3BDCE3"]}
+            items={["StashAway Risk Index 14%"]}
+            orientation="vertical"
+            style={{ position: "absolute", left: "30%", bottom: "-40px" }}
+          />
+          <DiscreteColorLegend
+            colors={["#EFB83C"]}
+            items={["40% VTSMX (Stock) + 60% VTBMX (Bond)"]}
+            orientation="vertical"
+            style={{ position: "absolute", left: "50%", bottom: "-40px" }}
+          />
         </XYPlot>
+        <div className="chart__legendDescription">
+          <p>VTSMX - Vanguard Total Stock Market Index</p>
+          <p>VTBMX - Vanguard Total Bond Market Index</p>
+        </div>
       </div>
     );
   }

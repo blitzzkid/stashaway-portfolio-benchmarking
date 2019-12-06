@@ -9,12 +9,23 @@
   padding: 2%;
   margin: 0;
   font-size: 24px;
-  color: rgb(255, 255, 255);
+  color: #bcbcbc;
 }
 
-.chart_description {
+.chart__description {
   text-align: left;
   padding: 2%;
   margin: 0;
-  color: rgb(255, 255, 255);
+  color: #bcbcbc;
+}
+
+.chart__legendDescription {
+  padding-top: 3%;
+  padding-bottom: 1%;
+  padding-left: 20%;
+  margin: 0;
+  color: #bcbcbc;
+}
+.chart__legendDescription p {
+  margin: 5px;
 }
