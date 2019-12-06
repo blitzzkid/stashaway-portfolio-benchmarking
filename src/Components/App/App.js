@@ -1,31 +1,44 @@
 import React from "react";
 import "./App.css";
 import { BenchmarkingChart } from "../BenchmarkingChart/BenchmarkingChart";
-import { data } from "../StashAwayRiskIndex14/StashAwayRiskIndex14";
-import { fetchMSCIWorldETF } from "../../api/api";
+import { msciWorldEtf } from "../msciWorldEtf/msciWorldEtf";
+import { fetchMsciWorldEtf } from "../../api/api";
+import { sampleData } from "../msciWorldEtf/sampleData";
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      msciApiData: {}
+      msciApiData: {},
+      msciChartData: []
     };
   }
 
   async componentDidMount() {
     try {
-      const msciApiData = await fetchMSCIWorldETF();
+      const msciApiData = await fetchMsciWorldEtf();
       this.setState({ msciApiData });
-      console.log(this.state.msciApiData);
+      this.processMsciWorldEtfData();
     } catch (err) {
       return err.message;
     }
   }
 
+  processMsciWorldEtfData() {
+    // const msciChartData = msciWorldEtf(this.state.msciApiData);
+    const msciChartData = msciWorldEtf(sampleData);
+    this.setState({ msciChartData });
+  }
+
   render() {
     return (
-      <div className="App">
-        <BenchmarkingChart data={data} />
+      <div className="app">
+        <div className="portfolioBenchmark__container">
+          <h2 className="portfolioBenchmark__heading">Portfolio benchmark</h2>
+          <div>
+            <BenchmarkingChart data={this.state.msciChartData} />
+          </div>
+        </div>
       </div>
     );
   }

@@ -1,6 +1,6 @@
 import axios from "./axios";
 
-export const fetchMSCIWorldETF = async () => {
+export const fetchMsciWorldEtf = async () => {
   const ticker = "URTH";
   const response = await axios.get(
     `/history?symbol=${ticker}&sort=newest&api_token=${process.env.REACT_APP_MSCI_ETF_TICKER_TOKEN}`,

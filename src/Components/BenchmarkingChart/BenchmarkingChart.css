@@ -1,0 +1,20 @@
+.chart__container {
+  text-align: center;
+  background-color: rgb(7, 35, 64);
+  border-radius: 1.5%;
+}
+
+.chart__heading {
+  text-align: left;
+  padding: 2%;
+  margin: 0;
+  font-size: 24px;
+  color: rgb(255, 255, 255);
+}
+
+.chart_description {
+  text-align: left;
+  padding: 2%;
+  margin: 0;
+  color: rgb(255, 255, 255);
+}
