@@ -1,4 +1,4 @@
-export const sampleData = {
+export const sampleMsciData = {
   name: "URTH",
   history: {
     "2019-12-04": {
