@@ -41,7 +41,7 @@ export class BenchmarkingChart extends React.Component {
           2019
         </h5>
         <XYPlot
-          // onMouseLeave={this.onMouseLeave}
+          onMouseLeave={this.onMouseLeave}
           width={1200}
           height={600}
           margin={{
