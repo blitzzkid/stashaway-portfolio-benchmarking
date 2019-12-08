@@ -1,12 +1,19 @@
 export const sampleVanguardData = {
   name: "VT",
   history: {
+    "2019-12-06": {
+      open: "79.16",
+      close: "79.27",
+      high: "79.35",
+      low: "79.10",
+      volume: "1494533"
+    },
     "2019-12-05": {
       open: "78.66",
       close: "78.57",
       high: "78.68",
       low: "78.30",
-      volume: "1227539"
+      volume: "1227542"
     },
     "2019-12-04": {
       open: "78.34",

@@ -82,9 +82,9 @@ export class BenchmarkingChart extends React.Component {
           />
           <Crosshair values={this.state.crosshairValues}>
             <div style={crosshairStyle}>
-              {console.log(this.state.crosshairValues)}
               <p>
-                {this.state.crosshairValues.length !== 0
+                {this.state.crosshairValues.length !== 0 &&
+                typeof this.state.crosshairValues[0] !== "undefined"
                   ? new Date(
                       this.state.crosshairValues[0].x
                     ).toLocaleDateString("en-SG", {
@@ -105,7 +105,7 @@ export class BenchmarkingChart extends React.Component {
                   : 0}
               </p>
               <p>
-                40% VTSMX Stock + 60% VTBMX Bond: $
+                {this.props.benchmarkPortfolioName}: $
                 {this.state.crosshairValues.length !== 0 &&
                 typeof this.state.crosshairValues[1] !== "undefined"
                   ? this.state.crosshairValues[1].y.toLocaleString(undefined, {
@@ -124,7 +124,7 @@ export class BenchmarkingChart extends React.Component {
           />
           <DiscreteColorLegend
             colors={["#EFB83C"]}
-            items={["40% VTSMX (Stock) + 60% VTBMX (Bond)"]}
+            items={[`${this.props.benchmarkPortfolioName}`]}
             orientation="vertical"
             style={benchmarkPortfolioLegendStyle}
           />
@@ -139,7 +139,8 @@ export class BenchmarkingChart extends React.Component {
 }
 
 BenchmarkingChart.propTypes = {
-  data: PropTypes.array
+  data: PropTypes.array,
+  benchmarkPortfolioName: PropTypes.string
 };
 
 const crosshairStyle = {

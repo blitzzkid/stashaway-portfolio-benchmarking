@@ -1,12 +1,26 @@
-export const sampleMsciData = {
+export const sampleiSharesData = {
   name: "URTH",
   history: {
+    "2019-12-06": {
+      open: "97.09",
+      close: "97.10",
+      high: "97.26",
+      low: "97.03",
+      volume: "117396"
+    },
+    "2019-12-05": {
+      open: "96.46",
+      close: "96.38",
+      high: "96.46",
+      low: "96.01",
+      volume: "79267"
+    },
     "2019-12-04": {
       open: "95.99",
       close: "96.26",
       high: "96.35",
       low: "95.90",
-      volume: "175780"
+      volume: "198582"
     },
     "2019-12-03": {
       open: "95.29",
