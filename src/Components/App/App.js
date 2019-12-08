@@ -14,6 +14,8 @@ class App extends React.Component {
       chartData: [],
       benchmarkPortfolio: "",
       benchmarkPortfolioName: "",
+      benchmarkPortfolioStockName: "",
+      benchmarkPortfolioBondName: "",
       benchmarkData: {}
     };
   }
@@ -62,6 +64,8 @@ class App extends React.Component {
   setVanguard4060Data = async () => {
     await this.setState({
       benchmarkPortfolioName: "40% VTSMX (Stock) + 60% VBMFX (Bond)",
+      benchmarkPortfolioStockName: "VTSMX - Vanguard Total Stock Market Index",
+      benchmarkPortfolioBondName: "VTBMX - Vanguard Total Bond Market Index",
       benchmarkData: sampleVanguardData
     });
     this.processStashAwayAndBenchmarkPortfolioData();
@@ -70,12 +74,16 @@ class App extends React.Component {
   setiShares2080Data = async () => {
     await this.setState({
       benchmarkPortfolioName: "20% IVV (Stock) + 80% GOVT (Bond)",
+      benchmarkPortfolioStockName: "IVV - iShares Core S&P 500 ETF",
+      benchmarkPortfolioBondName: "GOVT - iShares U.S. Treasury Bond ETF",
       benchmarkData: sampleiSharesData
     });
     this.processStashAwayAndBenchmarkPortfolioData();
   };
 
   render() {
+    console.log(this.state.benchmarkPortfolioStockName);
+    console.log(this.state.benchmarkPortfolioBondName);
     return (
       <div className="app">
         <div className="portfolioBenchmark__container">
@@ -87,6 +95,10 @@ class App extends React.Component {
             <BenchmarkingChart
               data={this.state.chartData}
               benchmarkPortfolioName={this.state.benchmarkPortfolioName}
+              benchmarkPortfolioStockName={
+                this.state.benchmarkPortfolioStockName
+              }
+              benchmarkPortfolioBondName={this.state.benchmarkPortfolioBondName}
             />
           </div>
         </div>

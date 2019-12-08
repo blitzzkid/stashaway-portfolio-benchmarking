@@ -130,8 +130,8 @@ export class BenchmarkingChart extends React.Component {
           />
         </XYPlot>
         <div className="chart__legendDescription">
-          <p>VTSMX - Vanguard Total Stock Market Index</p>
-          <p>VTBMX - Vanguard Total Bond Market Index</p>
+          <p>{this.props.benchmarkPortfolioStockName}</p>
+          <p>{this.props.benchmarkPortfolioBondName}</p>
         </div>
       </div>
     );
@@ -140,7 +140,9 @@ export class BenchmarkingChart extends React.Component {
 
 BenchmarkingChart.propTypes = {
   data: PropTypes.array,
-  benchmarkPortfolioName: PropTypes.string
+  benchmarkPortfolioName: PropTypes.string,
+  benchmarkPortfolioStockName: PropTypes.string,
+  benchmarkPortfolioBondName: PropTypes.string
 };
 
 const crosshairStyle = {
