@@ -6,6 +6,7 @@ import { BenchmarkSelection } from "../BenchmarkSelection/BenchmarkSelection";
 import { sampleiSharesData } from "../createChartData/sampleiSharesData";
 import { sampleVanguardData } from "../createChartData/sampleVanguardData";
 import { sampleSnP500Data } from "../createChartData/sampleSnP500Data";
+import { TimeFrameSelection } from "../TimeFrameSelection/TimeFrameSelection";
 
 class App extends React.Component {
   constructor() {
@@ -16,7 +17,8 @@ class App extends React.Component {
       benchmarkPortfolioName: "",
       benchmarkPortfolioStockName: "",
       benchmarkPortfolioBondName: "",
-      benchmarkData: {}
+      benchmarkData: {},
+      timeFrame: "max"
     };
   }
 
@@ -81,15 +83,24 @@ class App extends React.Component {
     this.processStashAwayAndBenchmarkPortfolioData();
   };
 
+  handleTimeFrameSelected = timeFrame => {
+    this.setState({
+      timeFrame
+    });
+  };
+
   render() {
-    console.log(this.state.benchmarkPortfolioStockName);
-    console.log(this.state.benchmarkPortfolioBondName);
+    console.log(this.state.timeFrame);
     return (
       <div className="app">
         <div className="portfolioBenchmark__container">
           <h2 className="portfolioBenchmark__heading">Portfolio benchmark</h2>
           <BenchmarkSelection
             handleBenchmarkPortfolioChange={this.handleBenchmarkPortfolioChange}
+          />
+          <TimeFrameSelection
+            handleTimeFrameSelected={this.handleTimeFrameSelected}
+            timeFrame={this.state.timeFrame}
           />
           <div>
             <BenchmarkingChart
