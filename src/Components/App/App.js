@@ -7,12 +7,17 @@ import { sampleiSharesData } from "../createChartData/sampleiSharesData";
 import { sampleVanguardData } from "../createChartData/sampleVanguardData";
 import { sampleSnP500Data } from "../createChartData/sampleSnP500Data";
 import { TimeFrameSelection } from "../TimeFrameSelection/TimeFrameSelection";
+import {
+  filterChartDataForOneMonth,
+  returnAllChartData
+} from "../filterChartData/filterChartData";
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       chartData: [],
+      stashAwayPortfolioData: {},
       benchmarkPortfolio: "",
       benchmarkPortfolioName: "",
       benchmarkPortfolioStockName: "",
@@ -30,19 +35,42 @@ class App extends React.Component {
     }
   }
 
-  processStashAwayPortfolioData = () => {
+  processStashAwayPortfolioData = async () => {
     const stashAwayRiskIndex14Data = createChartData(sampleSnP500Data);
-    const chartData = [stashAwayRiskIndex14Data];
+    await this.filterChartDataBasedOnTimeFrame(
+      "stashAwayPortfolioData",
+      stashAwayRiskIndex14Data
+    );
+    const stashAwayRiskIndex14DataWithinSelectedTimeFrame = this.state
+      .stashAwayPortfolioData;
+    const chartData = [stashAwayRiskIndex14DataWithinSelectedTimeFrame];
     this.setState({ chartData });
   };
 
-  processStashAwayAndBenchmarkPortfolioData = () => {
+  processStashAwayAndBenchmarkPortfolioData = async () => {
     const stashAwayRiskIndex14Data = createChartData(sampleSnP500Data);
     const dataOfBenchmarkPortfolioSelected = this.state.benchmarkData;
     const benchmarkChartData = createChartData(
       dataOfBenchmarkPortfolioSelected
     );
-    const chartData = [stashAwayRiskIndex14Data, benchmarkChartData];
+    await this.filterChartDataBasedOnTimeFrame(
+      "stashAwayPortfolioData",
+      stashAwayRiskIndex14Data
+    );
+    await this.filterChartDataBasedOnTimeFrame(
+      "benchmarkData",
+      benchmarkChartData
+    );
+    const stashAwayRiskIndex14DataWithinSelectedTimeFrame = this.state
+      .stashAwayPortfolioData;
+    const benchmarkPortfolioDataWithinSelectedTimeFrame = this.state
+      .benchmarkData;
+    const chartData = [
+      stashAwayRiskIndex14DataWithinSelectedTimeFrame,
+      benchmarkPortfolioDataWithinSelectedTimeFrame
+    ];
+    console.log("timeframe", this.state.timeFrame);
+    console.log("chartdata", chartData);
     this.setState({ chartData });
   };
 
@@ -89,8 +117,27 @@ class App extends React.Component {
     });
   };
 
+  filterChartDataBasedOnTimeFrame = (portfolioName, etfData) => {
+    const timeFrame = this.state.timeFrame;
+    switch (timeFrame) {
+      case "1-month":
+        this.setState({
+          [portfolioName]: filterChartDataForOneMonth(etfData)
+        });
+        break;
+      case "max":
+        this.setState({
+          [portfolioName]: returnAllChartData(etfData)
+        });
+        break;
+      default:
+        this.setState({
+          [portfolioName]: returnAllChartData(etfData)
+        });
+    }
+  };
+
   render() {
-    console.log(this.state.timeFrame);
     return (
       <div className="app">
         <div className="portfolioBenchmark__container">
