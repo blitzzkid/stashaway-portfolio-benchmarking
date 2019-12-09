@@ -18,7 +18,6 @@ class App extends React.Component {
     this.state = {
       chartData: [],
       stashAwayPortfolioData: {},
-      benchmarkPortfolio: "vanguard4060",
       benchmarkPortfolioName: "40% VTSMX (Stock) + 60% VBMFX (Bond)",
       benchmarkPortfolioStockName: "VTSMX - Vanguard Total Stock Market Index",
       benchmarkPortfolioBondName: "VTBMX - Vanguard Total Bond Market Index",
@@ -47,36 +46,23 @@ class App extends React.Component {
     this.setState({ chartData });
   };
 
-  processStashAwayAndBenchmarkPortfolioData = async () => {
-    const stashAwayRiskIndex14Data = createChartData(sampleSnP500Data);
-    const dataOfBenchmarkPortfolioSelected = this.state.benchmarkPortfolioData;
-    const benchmarkChartData = createChartData(
-      dataOfBenchmarkPortfolioSelected
-    );
+  updateStashAwayAndBenchmarkPortfolioData = async () => {
     await this.filterChartDataBasedOnTimeFrame(
       "stashAwayPortfolioData",
-      stashAwayRiskIndex14Data
+      this.state.stashAwayPortfolioData
     );
     await this.filterChartDataBasedOnTimeFrame(
-      "benchmarkData",
-      benchmarkChartData
+      "benchmarkPortfolioData",
+      this.state.benchmarkPortfolioData
     );
-    const stashAwayRiskIndex14DataWithinSelectedTimeFrame = this.state
-      .stashAwayPortfolioData;
-    const benchmarkPortfolioDataWithinSelectedTimeFrame = this.state
-      .benchmarkPortfolioData;
     const chartData = [
-      stashAwayRiskIndex14DataWithinSelectedTimeFrame,
-      benchmarkPortfolioDataWithinSelectedTimeFrame
+      this.state.stashAwayPortfolioData,
+      this.state.benchmarkPortfolioData
     ];
     this.setState({ chartData });
   };
 
-  handleBenchmarkPortfolioChange = benchmarkPortfolio => {
-    const benchmarkPortfolioSelected = benchmarkPortfolio;
-    this.setState({
-      benchmarkPortfolio
-    });
+  handleBenchmarkPortfolioChange = benchmarkPortfolioSelected => {
     switch (benchmarkPortfolioSelected) {
       case "vanguard4060":
         this.setVanguard4060Data();
@@ -89,35 +75,56 @@ class App extends React.Component {
     }
   };
 
-  setVanguard4060Data = async () => {
-    await this.setState({
+  setVanguard4060Data = () => {
+    this.setState({
+      stashAwayPortfolioData: createChartData(sampleSnP500Data),
       benchmarkPortfolioName: "40% VTSMX (Stock) + 60% VBMFX (Bond)",
       benchmarkPortfolioStockName: "VTSMX - Vanguard Total Stock Market Index",
       benchmarkPortfolioBondName: "VTBMX - Vanguard Total Bond Market Index",
-      benchmarkPortfolioData: sampleVanguardData
+      benchmarkPortfolioData: createChartData(sampleVanguardData)
     });
-    this.processStashAwayAndBenchmarkPortfolioData();
+    this.updateStashAwayAndBenchmarkPortfolioData();
   };
 
-  setiShares2080Data = async () => {
-    await this.setState({
+  setiShares2080Data = () => {
+    this.setState({
+      stashAwayPortfolioData: createChartData(sampleSnP500Data),
       benchmarkPortfolioName: "20% IVV (Stock) + 80% GOVT (Bond)",
       benchmarkPortfolioStockName: "IVV - iShares Core S&P 500 ETF",
       benchmarkPortfolioBondName: "GOVT - iShares U.S. Treasury Bond ETF",
-      benchmarkPortfolioData: sampleiSharesData
+      benchmarkPortfolioData: createChartData(sampleiSharesData)
     });
-    this.processStashAwayAndBenchmarkPortfolioData();
+    this.updateStashAwayAndBenchmarkPortfolioData();
   };
 
-  handleTimeFrameSelected = timeFrame => {
-    this.setState({
+  handleTimeFrameSelected = async timeFrame => {
+    await this.setState({
       timeFrame
     });
+    switch (this.state.benchmarkPortfolioName) {
+      case "40% VTSMX (Stock) + 60% VBMFX (Bond)":
+        this.setState({
+          stashAwayPortfolioData: createChartData(sampleSnP500Data),
+          benchmarkPortfolioData: createChartData(sampleVanguardData)
+        });
+        break;
+      case "20% IVV (Stock) + 80% GOVT (Bond)":
+        this.setState({
+          stashAwayPortfolioData: createChartData(sampleSnP500Data),
+          benchmarkPortfolioData: createChartData(sampleiSharesData)
+        });
+        break;
+      default:
+        this.setState({
+          stashAwayPortfolioData: createChartData(sampleSnP500Data),
+          benchmarkPortfolioData: createChartData(sampleVanguardData)
+        });
+    }
+    this.updateStashAwayAndBenchmarkPortfolioData();
   };
 
   filterChartDataBasedOnTimeFrame = (portfolioName, etfData) => {
-    const timeFrame = this.state.timeFrame;
-    switch (timeFrame) {
+    switch (this.state.timeFrame) {
       case "1-month":
         this.setState({
           [portfolioName]: filterChartDataForOneMonth(etfData)
