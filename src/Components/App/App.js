@@ -7,6 +7,7 @@ import { sampleiSharesData } from "../../sampleData/sampleiSharesData";
 import { sampleVanguardData } from "../../sampleData/sampleVanguardData";
 import { sampleSnP500Data } from "../../sampleData/sampleSnP500Data";
 import { TimeFrameSelection } from "../TimeFrameSelection/TimeFrameSelection";
+import { CurrencySelection } from "../CurrencySelection/CurrencySelection";
 import {
   filterChartDataForOneMonth,
   returnAllChartData
@@ -22,7 +23,8 @@ class App extends React.Component {
       benchmarkPortfolioStockName: "VTSMX - Vanguard Total Stock Market Index",
       benchmarkPortfolioBondName: "VTBMX - Vanguard Total Bond Market Index",
       benchmarkPortfolioData: {},
-      timeFrame: "max"
+      timeFrame: "max",
+      currency: "SGD"
     };
   }
 
@@ -142,6 +144,10 @@ class App extends React.Component {
     }
   };
 
+  handleCurrencyChange = currency => {
+    this.setState({ currency });
+  };
+
   render() {
     return (
       <div className="app">
@@ -153,6 +159,10 @@ class App extends React.Component {
           <TimeFrameSelection
             handleTimeFrameSelected={this.handleTimeFrameSelected}
             timeFrame={this.state.timeFrame}
+          />
+          <CurrencySelection
+            handleCurrencyChange={this.handleCurrencyChange}
+            currency={this.state.currency}
           />
           <div>
             <BenchmarkingChart

@@ -1,0 +1,7 @@
+.currency__selected {
+  background-color: aquamarine;
+}
+
+.currency__unselected {
+  background-color: white;
+}
