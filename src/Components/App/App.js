@@ -69,8 +69,6 @@ class App extends React.Component {
       stashAwayRiskIndex14DataWithinSelectedTimeFrame,
       benchmarkPortfolioDataWithinSelectedTimeFrame
     ];
-    console.log("timeframe", this.state.timeFrame);
-    console.log("chartdata", chartData);
     this.setState({ chartData });
   };
 

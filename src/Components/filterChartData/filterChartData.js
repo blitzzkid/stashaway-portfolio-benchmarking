@@ -1,15 +1,18 @@
 import moment from "moment";
 
 export const filterChartDataForOneMonth = etfData => {
-  console.log("here");
-  const etfDataWithinTimeFrame = moment(new Date()).subtract(1, "months");
-  // const etfDataWithinTimeFrameBoolean = moment(new Date()).isBetween(
-  //   etfDataWithinTimeFrame,
-  //   new Date()
-  // );
-  return Object.entries(etfData).filter(([key, value]) => {
-    return moment(key.x).isBetween(etfDataWithinTimeFrame, new Date());
-  });
+  const timeFrameBeforeCurrentDate = moment(new Date())
+    .subtract(1, "months")
+    .toISOString();
+  const etfDataWithinTimeFrameArray = Object.entries(etfData).filter(
+    ([, value]) => {
+      return moment(value.x).isBetween(timeFrameBeforeCurrentDate, new Date());
+    }
+  );
+  const etfDataWithinTimeFrameObject = etfDataWithinTimeFrameArray.map(
+    array => array[1]
+  );
+  return etfDataWithinTimeFrameObject;
 };
 
 export const returnAllChartData = etfData => etfData;
