@@ -3,9 +3,9 @@ import "./App.css";
 import { BenchmarkingChart } from "../BenchmarkingChart/BenchmarkingChart";
 import { createChartData } from "../createChartData/createChartData";
 import { BenchmarkSelection } from "../BenchmarkSelection/BenchmarkSelection";
-import { sampleiSharesData } from "../createChartData/sampleiSharesData";
-import { sampleVanguardData } from "../createChartData/sampleVanguardData";
-import { sampleSnP500Data } from "../createChartData/sampleSnP500Data";
+import { sampleiSharesData } from "../../sampleData/sampleiSharesData";
+import { sampleVanguardData } from "../../sampleData/sampleVanguardData";
+import { sampleSnP500Data } from "../../sampleData/sampleSnP500Data";
 import { TimeFrameSelection } from "../TimeFrameSelection/TimeFrameSelection";
 import {
   filterChartDataForOneMonth,
