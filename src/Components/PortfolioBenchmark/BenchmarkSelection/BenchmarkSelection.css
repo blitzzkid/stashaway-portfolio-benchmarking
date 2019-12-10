@@ -19,7 +19,7 @@
 .benchmarkSelection__vs {
   position: relative;
   left: 95%;
-  bottom: 160%;
+  bottom: 162%;
   background-color: #3884d9;
   width: 50px;
   height: 50px;
@@ -46,6 +46,9 @@
 }
 
 .benchmarkSelection__dropdownBox select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   font-family: "Arial";
   display: inline-block;
   width: 100%;
@@ -56,9 +59,6 @@
   border-radius: 6px;
   background: #ffffff;
   color: #a5a4a4;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   height: 45px;
 }
 
