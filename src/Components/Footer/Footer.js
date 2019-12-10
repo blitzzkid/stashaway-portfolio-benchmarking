@@ -1,8 +1,9 @@
 import React from "react";
+import "./Footer.css";
 
 export const Footer = () => {
   return (
-    <div>
+    <div className="footer__container">
       <p>
         <span>© 2019 Asia Wealth Platform Pte Ltd</span>
       </p>
