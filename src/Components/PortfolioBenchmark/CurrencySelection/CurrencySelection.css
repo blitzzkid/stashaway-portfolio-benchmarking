@@ -1,7 +1,9 @@
 .currency__selected {
-  background-color: aquamarine;
+  background-color: #3fb6b2;
+  color: white;
 }
 
 .currency__unselected {
   background-color: white;
+  color: #3fb6b2;
 }
