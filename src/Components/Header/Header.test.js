@@ -4,6 +4,11 @@ import "@testing-library/jest-dom/extend-expect";
 import { Header } from "./Header";
 
 describe("It renders the header correctly", () => {
+  it("Shows the StashAway logo", () => {
+    const { getByAltText } = render(<Header />);
+    expect(getByAltText("stashaway-logo")).toBeInTheDocument();
+  });
+
   it("Shows the menu link 'Home'", () => {
     const { getByText } = render(<Header />);
     expect(getByText("Home")).toBeInTheDocument();
