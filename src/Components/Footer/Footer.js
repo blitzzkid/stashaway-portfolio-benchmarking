@@ -22,7 +22,7 @@ export const Footer = () => {
           Platform Agreement
         </a>
         &nbsp;|&nbsp;
-        <span>Support</span>
+        <span className="footer__links">Support</span>
       </p>
     </div>
   );
