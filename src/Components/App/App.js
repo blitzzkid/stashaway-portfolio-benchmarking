@@ -12,6 +12,7 @@ import {
   filterChartDataForOneMonth,
   returnAllChartData
 } from "../filterChartData/filterChartData";
+import {Footer} from "../Footer/Footer.js"
 
 class App extends React.Component {
   constructor() {
@@ -175,6 +176,7 @@ class App extends React.Component {
             />
           </div>
         </div>
+        <Footer/>
       </div>
     );
   }
