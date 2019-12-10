@@ -10,11 +10,19 @@ export const Footer = () => {
         <span>Licensed by the Monetary Authority of Singapore</span>
       </p>
       <p>
-        <a href="https://www.stashaway.sg/legal/privacy-policy" target="blank">Privacy</a>&nbsp;|&nbsp; 
-        <a href="https://www.stashaway.sg/legal/platform-agreement" target="blank">Platform Agreement</a>&nbsp;|&nbsp; 
+        <a href="https://www.stashaway.sg/legal/privacy-policy" target="blank">
+          Privacy
+        </a>
+        &nbsp;|&nbsp;
+        <a
+          href="https://www.stashaway.sg/legal/platform-agreement"
+          target="blank"
+        >
+          Platform Agreement
+        </a>
+        &nbsp;|&nbsp;
         <span>Support</span>
-        </p>
+      </p>
     </div>
   );
 };
-

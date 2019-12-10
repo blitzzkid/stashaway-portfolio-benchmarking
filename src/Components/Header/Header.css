@@ -1,0 +1,31 @@
+.header__container {
+  background-color: rgb(7, 35, 64);
+}
+
+.container__box {
+  display: flex;
+  padding-top: 1%;
+  padding-left: 8%;
+  padding-right: 5%;
+  color: white;
+  justify-content: space-between;
+}
+
+.container__box img {
+  display: inline-block;
+  width: 120px;
+  height: 28px;
+}
+
+.container__menu {
+  display: inline-block;
+  padding: 0.5% 0;
+  width: 50%;
+}
+
+.container__menu span {
+  margin-right: 7%;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}

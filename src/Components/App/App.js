@@ -3,16 +3,17 @@ import "./App.css";
 import { BenchmarkingChart } from "../BenchmarkingChart/BenchmarkingChart";
 import { createChartData } from "../createChartData/createChartData";
 import { BenchmarkSelection } from "../BenchmarkSelection/BenchmarkSelection";
-import { sampleiSharesData } from "../../sampleData/sampleiSharesData";
-import { sampleVanguardData } from "../../sampleData/sampleVanguardData";
-import { sampleSnP500Data } from "../../sampleData/sampleSnP500Data";
+import { sampleiSharesData } from "../../assets/sampleData/sampleiSharesData";
+import { sampleVanguardData } from "../../assets/sampleData/sampleVanguardData";
+import { sampleSnP500Data } from "../../assets/sampleData/sampleSnP500Data";
 import { TimeFrameSelection } from "../TimeFrameSelection/TimeFrameSelection";
 import { CurrencySelection } from "../CurrencySelection/CurrencySelection";
 import {
   filterChartDataForOneMonth,
   returnAllChartData
 } from "../filterChartData/filterChartData";
-import {Footer} from "../Footer/Footer.js"
+import { Footer } from "../Footer/Footer.js";
+import { Header } from "../Header/Header";
 
 class App extends React.Component {
   constructor() {
@@ -152,6 +153,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
+        <Header />
         <div className="portfolioBenchmark__container">
           <h2 className="portfolioBenchmark__heading">Portfolio benchmark</h2>
           <BenchmarkSelection
@@ -176,7 +178,7 @@ class App extends React.Component {
             />
           </div>
         </div>
-        <Footer/>
+        <Footer />
       </div>
     );
   }
