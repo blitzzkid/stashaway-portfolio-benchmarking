@@ -17,6 +17,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:watch": "npm test --watchAll",
+    "test:coverage": "npm test -- --coverage --watchAll=false",
+    "test:all": "npm run lint && npm run test:coverage",
+    "test:report": "npm test --coverage && open coverage/lcov-report/index.html",
     "eject": "react-scripts eject",
     "lint": "eslint src"
   },

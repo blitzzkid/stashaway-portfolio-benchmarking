@@ -1,68 +1,93 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# StashAway Portfolio Benchmarking
 
-## Available Scripts
+This is my solution to the front end assignment for StashAway's Portfolio Benchmarking
 
-In the project directory, you can run:
+## Assumptions
 
-### `npm start`
+1. Before the user selects any benchmark portfolio in the drop down there is already one benchmark portfolio (E.g. 40% VTSMX (Stock) + 60% VBMFX (Bond)) displayed in the chart by default, along with the StashAway Risk 14% portfolio.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Incomplete features due to lack of time
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+1. Re-rendering of chart upon selection of currency 
+2. Constructing of portfolio using the weightages provided (i.e. 20% stocks and 80% bonds) 
+3. Drop down for User profile, more actions, overview 
+4. Separate pages for links on menu bar and navigation bar, Support on footer
 
-### `npm test`
+## Application design
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. `index.js` is the entry point of the application.
 
-### `npm run build`
+2. The Portfolio Benchmark component is designed to allow the user to visualize the performance of their StashAway Portfolio with a few filters:
+- Selecting the timeframe for the portfolio (1 month, 6 months, 1 year, 5 years, max)
+- Selecting the currency for the data (SGD or USD)
+- Selecting other portfolios as a benchmark (E.g. 20% stocks/80% bonds)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. When the user selects a new option on the filters, the following happens:
+- Selecting another timeframe
+  - The timeframe selected is being updated in the state
+  - The data for both the StashAway portfolio and benchmark portfolio (that is currently selected) is being reset to the original
+  - The data is being filtered according to the timeframe selected
+- Selecting another portfolio
+  - The information relating to the selected portfolio is being updated (i.e. Name, stock name, bond name) in the state
+  - The data for both the StashAway portfolio and benchmark portfolio (that is currently selected) is being reset to the original
+  - The data is being filtered according to the timeframe selected
+- Selecting another currency
+  - The currency selected is being updated in the state
+  - The data for both the StashAway portfolio and benchmark portfolio (that is currently selected) is being reset to the original
+  - The createChartData function converts the portfolio value if the ETF is in USD and the user selects SGD.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Running the application
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Unzip the code to a folder on your computer
 
-### `npm run eject`
+Before running any scripts, please install development dependencies:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+npm install
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+You can now use the application with the following command:
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+npm run start
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Run unit tests and linter
 
-## Learn More
+You can now also run the following scripts:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Run linter
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+npm run lint
+```
 
-### Code Splitting
+Run unit tests
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+```
+npm test
+```
 
-### Analyzing the Bundle Size
+Run unit tests in watch mode
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+```
+npm run test:watch
+```
 
-### Making a Progressive Web App
+Run both linter and unit tests
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+```
+npm run test:all
+```
 
-### Advanced Configuration
+Run test coverage
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+```
+npm run test:coverage
+```
 
-### Deployment
+Open coverage report
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+```
+npm run test:report
+```
