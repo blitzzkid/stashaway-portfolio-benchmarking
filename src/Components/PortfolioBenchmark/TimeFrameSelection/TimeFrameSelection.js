@@ -4,7 +4,7 @@ import "./TimeFrameSelection.css";
 
 export const TimeFrameSelection = ({ timeFrame, handleTimeFrameSelected }) => {
   return (
-    <div>
+    <div className="timeFrame_selectors">
       <div
         onClick={() => handleTimeFrameSelected("1-month")}
         className={

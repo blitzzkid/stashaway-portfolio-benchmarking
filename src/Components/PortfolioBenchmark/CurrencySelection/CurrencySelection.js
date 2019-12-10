@@ -4,7 +4,7 @@ import "./CurrencySelection.css";
 
 export const CurrencySelection = ({ currency, handleCurrencyChange }) => {
   return (
-    <div>
+    <div className="currency_selectors">
       <div
         onClick={() => handleCurrencyChange("SGD")}
         className={

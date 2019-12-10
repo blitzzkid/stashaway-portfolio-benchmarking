@@ -1,9 +1,23 @@
+.currency_selectors {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0.9% 0;
+}
+
 .currency__selected {
   background-color: #3fb6b2;
   color: white;
+  height: 30px;
+  border-radius: 4px;
+  padding: 4px 10px;
+  margin: 0px 10px;
 }
 
 .currency__unselected {
   background-color: white;
   color: #3fb6b2;
+  height: 30px;
+  border-radius: 4px;
+  padding: 4px 10px;
+  margin: 0px 10px;
 }

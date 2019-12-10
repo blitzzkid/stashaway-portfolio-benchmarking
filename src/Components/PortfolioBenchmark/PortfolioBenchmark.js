@@ -155,14 +155,16 @@ export class PortfolioBenchmark extends React.Component {
         <BenchmarkSelection
           handleBenchmarkPortfolioChange={this.handleBenchmarkPortfolioChange}
         />
-        <TimeFrameSelection
-          handleTimeFrameSelected={this.handleTimeFrameSelected}
-          timeFrame={this.state.timeFrame}
-        />
-        <CurrencySelection
-          handleCurrencyChange={this.handleCurrencyChange}
-          currency={this.state.currency}
-        />
+        <div className="portfolioBenchmark__selectors">
+          <TimeFrameSelection
+            handleTimeFrameSelected={this.handleTimeFrameSelected}
+            timeFrame={this.state.timeFrame}
+          />
+          <CurrencySelection
+            handleCurrencyChange={this.handleCurrencyChange}
+            currency={this.state.currency}
+          />
+        </div>
         <BenchmarkingChart
           data={this.state.chartData}
           benchmarkPortfolioName={this.state.benchmarkPortfolioName}

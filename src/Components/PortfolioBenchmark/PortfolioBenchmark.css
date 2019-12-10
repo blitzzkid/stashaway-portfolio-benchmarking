@@ -9,3 +9,9 @@
 .portfolioBenchmark__heading {
   text-align: left;
 }
+
+.portfolioBenchmark__selectors {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+}
