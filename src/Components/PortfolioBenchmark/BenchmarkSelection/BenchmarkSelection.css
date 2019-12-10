@@ -1,0 +1,95 @@
+.benchmarkSelection__container {
+  display: grid;
+  grid-template-areas: "label dropdown";
+}
+
+.benchmarkSelection__label {
+  grid-area: label;
+  background-color: #f7f7f7;
+  padding: 3% 5%;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.benchmarkSelection__label span {
+  color: #3884d9;
+  font-weight: 700;
+}
+
+.benchmarkSelection__vs {
+  position: relative;
+  left: 95%;
+  bottom: 160%;
+  background-color: #3884d9;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: white;
+  font-weight: 700;
+}
+
+.benchmarkSelection__dropdown {
+  grid-area: dropdown;
+  background-color: #eaecef;
+  padding: 5% 5%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.benchmarkSelection__dropdownBox {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.benchmarkSelection__dropdownBox select {
+  font-family: "Arial";
+  display: inline-block;
+  width: 100%;
+  cursor: pointer;
+  padding: 10px 15px;
+  outline: 0;
+  border: 1px solid #dfdede;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #a5a4a4;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  height: 45px;
+}
+.benchmarkSelection__dropdownBox select::-ms-expand {
+  display: none;
+}
+.benchmarkSelection__dropdownBox select:hover,
+.benchmarkSelection__dropdownBox select:focus {
+  color: #afafaf;
+  background: #ffffff;
+}
+.benchmarkSelection__dropdownBox select:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.dropdown__arrow {
+  position: absolute;
+  top: 13px;
+  right: 15px;
+  width: 5px;
+  height: 5px;
+  border: solid #3fb6b2;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+.benchmarkSelection__dropdownBox select:hover ~ .dropdown__arrow,
+.benchmarkSelection__dropdownBox select:focus ~ .dropdown__arrow {
+  border-color: #3fb6b2;
+}
+.benchmarkSelection__dropdownBox select:disabled ~ .dropdown__arrow {
+  border-top-color: #3fb6b2;
+}
