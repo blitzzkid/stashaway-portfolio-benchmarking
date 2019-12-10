@@ -12,13 +12,11 @@
 }
 
 .container__box img {
-  display: inline-block;
   width: 120px;
   height: 28px;
 }
 
 .container__menu {
-  display: inline-block;
   padding: 0.5% 0;
   width: 50%;
 }

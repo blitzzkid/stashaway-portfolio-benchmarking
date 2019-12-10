@@ -1,0 +1,41 @@
+.navigation__container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(7, 35, 64);
+  margin-top: 0px;
+}
+
+.navigation__heading h5 {
+  font-size: 16px;
+  color: #3fb6b2;
+  text-align: left;
+  padding-left: 8%;
+  margin-block-end: 0;
+}
+
+.navigation__heading h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: white;
+  text-align: left;
+  padding-left: 8%;
+  margin-block-start: 0;
+}
+
+.navigation__links {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  text-align: left;
+  padding-left: 8%;
+  padding-right: 9%;
+  padding-bottom: 1%;
+}
+
+.navigation__linksPortfolio {
+  width: 50%;
+}
+
+.navigation__linksPortfolio span {
+  margin-right: 7%;
+}

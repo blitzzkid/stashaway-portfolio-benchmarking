@@ -14,6 +14,7 @@ import {
 } from "../filterChartData/filterChartData";
 import { Footer } from "../Footer/Footer.js";
 import { Header } from "../Header/Header";
+import { Navigation } from "../Navigation/Navigation";
 
 class App extends React.Component {
   constructor() {
@@ -154,6 +155,7 @@ class App extends React.Component {
     return (
       <div className="app">
         <Header />
+        <Navigation />
         <div className="portfolioBenchmark__container">
           <h2 className="portfolioBenchmark__heading">Portfolio benchmark</h2>
           <BenchmarkSelection
