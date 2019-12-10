@@ -23,10 +23,10 @@ export class BenchmarkSelection extends React.Component {
               onChange={this.onBenchmarkPortfolioChange}
             >
               <option value="">Which benchmark do you want to compare?</option>
-              <option value="vanguard4060">
+              <option value="vanguard4060" aria-label="vanguard4060">
                 40% VTSMX (Stock) + 60% VBMFX (Bond)
               </option>
-              <option value="ishares2080">
+              <option value="ishares2080" aria-label="ishares2080">
                 20% IVV (Stock) + 80% GOVT (Bond)
               </option>
             </select>
