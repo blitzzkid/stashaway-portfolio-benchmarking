@@ -1,17 +1,17 @@
 import React from "react";
 import "./PortfolioBenchmark.css";
-import { BenchmarkingChart } from "../BenchmarkingChart/BenchmarkingChart";
-import { createChartData } from "../createChartData/createChartData";
-import { BenchmarkSelection } from "../BenchmarkSelection/BenchmarkSelection";
+import { BenchmarkingChart } from "./BenchmarkingChart/BenchmarkingChart";
+import { createChartData } from "./createChartData/createChartData";
+import { BenchmarkSelection } from "./BenchmarkSelection/BenchmarkSelection";
 import { sampleiSharesData } from "../../assets/sampleData/sampleiSharesData";
 import { sampleVanguardData } from "../../assets/sampleData/sampleVanguardData";
 import { sampleSnP500Data } from "../../assets/sampleData/sampleSnP500Data";
-import { TimeFrameSelection } from "../TimeFrameSelection/TimeFrameSelection";
-import { CurrencySelection } from "../CurrencySelection/CurrencySelection";
+import { TimeFrameSelection } from "./TimeFrameSelection/TimeFrameSelection";
+import { CurrencySelection } from "./CurrencySelection/CurrencySelection";
 import {
   filterChartDataForOneMonth,
   returnAllChartData
-} from "../filterChartData/filterChartData";
+} from "./filterChartData/filterChartData";
 
 export class PortfolioBenchmark extends React.Component {
   constructor() {
