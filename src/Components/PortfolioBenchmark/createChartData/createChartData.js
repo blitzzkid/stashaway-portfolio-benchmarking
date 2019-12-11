@@ -30,7 +30,8 @@ const fillInChartData = (
         100000,
         purchasedPriceOfShare,
         value.close,
-        currency
+        currency,
+        key
       )
     })
   );

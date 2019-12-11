@@ -7,13 +7,16 @@ This is my solution to the front end assignment for StashAway's Portfolio Benchm
 1. Before the user selects any benchmark portfolio in the drop down there is already one benchmark portfolio (E.g. 40% VTSMX (Stock) + 60% VBMFX (Bond)) displayed in the chart by default, along with the StashAway Risk 14% portfolio.
 2. The portfolio value on the crosshair is rounded up to the nearest whole number.
 3. The user invested a sum of $100,000 in 2012 and did not make any further deposits
+4. If the USD/SGD exchange rate data for a particular date is not available, a fixed number of 1.36 is used
 
 ## Incomplete features due to lack of time
 
-1. Re-rendering of chart upon selection of currency 
+1. Optimizing exchange rate function (Re-rending is slow because of the searching of exchange rate data) 
 2. Constructing of portfolio using the weightages provided (i.e. 20% stocks and 80% bonds) 
 3. Drop down for User profile, more actions, overview 
 4. Separate pages for links on menu bar and navigation bar, Support on footer
+5. Styling of crosshair in chart, other chart elements and dropdown selection
+6. Responsiveness of CSS
 
 ## Application design
 
