@@ -50,11 +50,11 @@ export class PortfolioBenchmark extends React.Component {
   };
 
   updateStashAwayAndBenchmarkPortfolioData = async () => {
-    await this.filterChartDataBasedOnTimeFrame(
+    await this.filterChartDataBasedOnTimeFrameSelected(
       "stashAwayPortfolioData",
       this.state.stashAwayPortfolioData
     );
-    await this.filterChartDataBasedOnTimeFrame(
+    await this.filterChartDataBasedOnTimeFrameSelected(
       "benchmarkPortfolioData",
       this.state.benchmarkPortfolioData
     );
@@ -129,7 +129,7 @@ export class PortfolioBenchmark extends React.Component {
     this.updateStashAwayAndBenchmarkPortfolioData();
   };
 
-  filterChartDataBasedOnTimeFrame = (portfolioName, etfData) => {
+  filterChartDataBasedOnTimeFrameSelected = (portfolioName, etfData) => {
     switch (this.state.timeFrame) {
       case "1-month":
         this.setState({
