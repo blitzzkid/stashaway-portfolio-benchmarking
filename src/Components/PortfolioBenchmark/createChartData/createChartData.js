@@ -13,7 +13,7 @@ export const createChartData = etfApiData => {
   return chartData;
 };
 
-const findDateOfSharePurchase = etfApiData => {
+export const findDateOfSharePurchase = etfApiData => {
   return Object.keys(etfApiData.history)[
     Object.keys(etfApiData.history).length - 1
   ];
