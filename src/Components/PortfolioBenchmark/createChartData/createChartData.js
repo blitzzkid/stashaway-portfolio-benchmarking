@@ -7,7 +7,7 @@ export const createChartData = etfApiData => {
   Object.entries(etfApiData.history).forEach(([key, value]) =>
     chartData.push({
       x: new Date(key),
-      y: calculatePortfolioValue(1000, purchasedPriceOfShare, value.close)
+      y: calculatePortfolioValue(100000, purchasedPriceOfShare, value.close)
     })
   );
   return chartData;

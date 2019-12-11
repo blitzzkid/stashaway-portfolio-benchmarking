@@ -34,7 +34,7 @@ export class BenchmarkingChart extends React.Component {
     return (
       <div className="chart__container">
         <h5 className="chart__heading">
-          Portfolio Value Based on gross returns
+          Portfolio value based on gross returns
         </h5>
         <h5 className="chart__description">
           Gross returns and exchange rates sourced from Bloomberg as of 2th May
@@ -59,7 +59,7 @@ export class BenchmarkingChart extends React.Component {
                 month: "short"
               });
             }}
-            tickTotal={5}
+            tickTotal={7}
           />
           <YAxis
             attr="y"
@@ -102,24 +102,24 @@ export class BenchmarkingChart extends React.Component {
                   : 0}
               </p>
               <p>
-                StashAway Risk Index 14%: $
+                StashAway Risk Index 14% $
                 {this.state.crosshairValues.length !== 0 &&
                 typeof this.state.crosshairValues[0] !== "undefined"
                   ? this.state.crosshairValues[0].y.toLocaleString(undefined, {
-                      minimumFractionDigits: 2,
-                      maximumFractionDigits: 2
+                      maximumFractionDigits: 0
                     })
-                  : 0}
+                  : 0}{" "}
+                {this.props.currency}
               </p>
               <p>
-                {this.props.benchmarkPortfolioName}: $
+                {this.props.benchmarkPortfolioName} $
                 {this.state.crosshairValues.length !== 0 &&
                 typeof this.state.crosshairValues[1] !== "undefined"
                   ? this.state.crosshairValues[1].y.toLocaleString(undefined, {
-                      minimumFractionDigits: 2,
-                      maximumFractionDigits: 2
+                      maximumFractionDigits: 0
                     })
-                  : 0}
+                  : 0}{" "}
+                {this.props.currency}
               </p>
             </div>
           </Crosshair>
@@ -147,6 +147,7 @@ export class BenchmarkingChart extends React.Component {
 
 BenchmarkingChart.propTypes = {
   data: PropTypes.array,
+  currency: PropTypes.string,
   benchmarkPortfolioName: PropTypes.string,
   benchmarkPortfolioStockName: PropTypes.string,
   benchmarkPortfolioBondName: PropTypes.string

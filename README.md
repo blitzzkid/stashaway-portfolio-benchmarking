@@ -5,6 +5,8 @@ This is my solution to the front end assignment for StashAway's Portfolio Benchm
 ## Assumptions
 
 1. Before the user selects any benchmark portfolio in the drop down there is already one benchmark portfolio (E.g. 40% VTSMX (Stock) + 60% VBMFX (Bond)) displayed in the chart by default, along with the StashAway Risk 14% portfolio.
+2. The portfolio value on the crosshair is rounded up to the nearest whole number.
+3. The user invested a sum of $100,000 in 2012 and did not make any further deposits
 
 ## Incomplete features due to lack of time
 

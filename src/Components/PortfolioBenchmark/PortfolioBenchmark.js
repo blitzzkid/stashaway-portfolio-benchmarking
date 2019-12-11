@@ -10,6 +10,10 @@ import { TimeFrameSelection } from "./TimeFrameSelection/TimeFrameSelection";
 import { CurrencySelection } from "./CurrencySelection/CurrencySelection";
 import {
   filterChartDataForOneMonth,
+  filterChartDataForSixMonths,
+  filterChartDataForYearToDate,
+  filterChartDataForOneYear,
+  filterChartDataForFiveYears,
   returnAllChartData
 } from "./filterChartData/filterChartData";
 
@@ -132,6 +136,26 @@ export class PortfolioBenchmark extends React.Component {
           [portfolioName]: filterChartDataForOneMonth(etfData)
         });
         break;
+      case "6-months":
+        this.setState({
+          [portfolioName]: filterChartDataForSixMonths(etfData)
+        });
+        break;
+      case "year-to-date":
+        this.setState({
+          [portfolioName]: filterChartDataForYearToDate(etfData)
+        });
+        break;
+      case "1-year":
+        this.setState({
+          [portfolioName]: filterChartDataForOneYear(etfData)
+        });
+        break;
+      case "5-years":
+        this.setState({
+          [portfolioName]: filterChartDataForFiveYears(etfData)
+        });
+        break;
       case "max":
         this.setState({
           [portfolioName]: returnAllChartData(etfData)
@@ -167,6 +191,7 @@ export class PortfolioBenchmark extends React.Component {
         </div>
         <BenchmarkingChart
           data={this.state.chartData}
+          currency={this.state.currency}
           benchmarkPortfolioName={this.state.benchmarkPortfolioName}
           benchmarkPortfolioStockName={this.state.benchmarkPortfolioStockName}
           benchmarkPortfolioBondName={this.state.benchmarkPortfolioBondName}
