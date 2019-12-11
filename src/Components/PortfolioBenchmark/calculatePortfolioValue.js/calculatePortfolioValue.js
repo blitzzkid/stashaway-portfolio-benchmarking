@@ -1,4 +1,4 @@
-import { sampleUSDSGDData } from "../../../assets/sampleData/sampleUSDSGDData";
+import { fetchUSDSGDExchangeRateData } from "../../../api/mockApi";
 const FIXED_USD_SGD_EXCHANGE_RATE = 1.36;
 
 export const calculatePortfolioValue = (
@@ -22,8 +22,9 @@ export const calculatePortfolioValue = (
 };
 
 const findExchangeRateOfThatDate = date => {
+  const UsdSgdExchangeRateData = fetchUSDSGDExchangeRateData();
   if (typeof date !== "undefined") {
-    return Object.entries(sampleUSDSGDData.history).find(
+    return Object.entries(UsdSgdExchangeRateData.history).find(
       ([key]) => key === date
     )[1];
   } else {
