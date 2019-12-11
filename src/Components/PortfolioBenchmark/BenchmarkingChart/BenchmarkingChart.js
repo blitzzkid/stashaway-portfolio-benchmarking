@@ -59,8 +59,15 @@ export class BenchmarkingChart extends React.Component {
                 month: "short"
               });
             }}
+            tickTotal={5}
           />
-          <YAxis attr="y" attrAxis="x" orientation="left" left={-20} />
+          <YAxis
+            attr="y"
+            attrAxis="x"
+            orientation="left"
+            left={-20}
+            tickTotal={6}
+          />
           <HorizontalGridLines />
           <LineSeries
             onNearestX={this.onNearestX}
