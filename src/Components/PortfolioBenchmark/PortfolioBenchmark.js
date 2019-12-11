@@ -9,13 +9,9 @@ import { sampleSnP500Data } from "../../assets/sampleData/sampleSnP500Data";
 import { TimeFrameSelection } from "./TimeFrameSelection/TimeFrameSelection";
 import { CurrencySelection } from "./CurrencySelection/CurrencySelection";
 import {
-  filterChartDataForOneMonth,
-  filterChartDataForSixMonths,
-  filterChartDataForYearToDate,
-  filterChartDataForOneYear,
-  filterChartDataForFiveYears,
+  filterChartDataByTimeFrame,
   returnAllChartData
-} from "./filterChartData/filterChartData";
+} from "./filterChartDataByTimeFrame/filterChartDataByTimeFrame";
 
 export class PortfolioBenchmark extends React.Component {
   constructor() {
@@ -133,27 +129,27 @@ export class PortfolioBenchmark extends React.Component {
     switch (this.state.timeFrame) {
       case "1-month":
         this.setState({
-          [portfolioName]: filterChartDataForOneMonth(etfData)
+          [portfolioName]: filterChartDataByTimeFrame("1-month", etfData)
         });
         break;
       case "6-months":
         this.setState({
-          [portfolioName]: filterChartDataForSixMonths(etfData)
+          [portfolioName]: filterChartDataByTimeFrame("6-months", etfData)
         });
         break;
       case "year-to-date":
         this.setState({
-          [portfolioName]: filterChartDataForYearToDate(etfData)
+          [portfolioName]: filterChartDataByTimeFrame("year-to-date", etfData)
         });
         break;
       case "1-year":
         this.setState({
-          [portfolioName]: filterChartDataForOneYear(etfData)
+          [portfolioName]: filterChartDataByTimeFrame("1-year", etfData)
         });
         break;
       case "5-years":
         this.setState({
-          [portfolioName]: filterChartDataForFiveYears(etfData)
+          [portfolioName]: filterChartDataByTimeFrame("5-years", etfData)
         });
         break;
       case "max":
