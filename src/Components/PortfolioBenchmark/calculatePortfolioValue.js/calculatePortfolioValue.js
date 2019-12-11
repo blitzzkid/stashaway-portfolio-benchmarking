@@ -1,8 +1,18 @@
 export const calculatePortfolioValue = (
-  netDeposits,
-  purchasedPriceOfShare,
-  currentPricePerShare
+  netDepositsInSGD,
+  purchasedPriceOfShareInUSD,
+  currentPricePerShareInUSD,
+  currencySelected
 ) => {
-  const numberOfSharesHeld = netDeposits / purchasedPriceOfShare;
-  return Number((numberOfSharesHeld * currentPricePerShare).toFixed(2));
+  const exchangeRateForUSDSGD = 1.36;
+  const netDepositsInUSD = netDepositsInSGD / exchangeRateForUSDSGD;
+  const numberOfSharesHeld = netDepositsInUSD / purchasedPriceOfShareInUSD;
+  const portfolioValueInUSD = Number(
+    (numberOfSharesHeld * currentPricePerShareInUSD).toFixed(2)
+  );
+  if (currencySelected === "USD") {
+    return portfolioValueInUSD;
+  } else if (currencySelected === "SGD") {
+    return portfolioValueInUSD * exchangeRateForUSDSGD;
+  }
 };

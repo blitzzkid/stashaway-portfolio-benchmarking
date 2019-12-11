@@ -28,10 +28,10 @@ describe("Creates the chart data from raw API data", () => {
     }
   };
   it("should return the chart data in x and y coordinates", () => {
-    expect(createChartData(sampleiSharesData)).toEqual([
-      { x: new Date("2019-12-10"), y: 99598.35 },
-      { x: new Date("2019-12-09"), y: 99639.55 },
-      { x: new Date("2019-12-06"), y: 100000 }
+    expect(createChartData(sampleiSharesData, "SGD")).toEqual([
+      { x: new Date("2019-12-10"), y: 99598.3488 },
+      { x: new Date("2019-12-09"), y: 99639.5432 },
+      { x: new Date("2019-12-06"), y: 99999.99760000002 }
     ]);
   });
 

@@ -37,9 +37,10 @@ export class PortfolioBenchmark extends React.Component {
   }
 
   processDefaultChartData = async () => {
+    const currency = this.state.currency;
     await this.setState({
-      stashAwayPortfolioData: createChartData(sampleSnP500Data),
-      benchmarkPortfolioData: createChartData(sampleVanguardData)
+      stashAwayPortfolioData: createChartData(sampleSnP500Data, currency),
+      benchmarkPortfolioData: createChartData(sampleVanguardData, currency)
     });
     const chartData = [
       this.state.stashAwayPortfolioData,
@@ -78,48 +79,51 @@ export class PortfolioBenchmark extends React.Component {
   };
 
   setVanguard4060Data = () => {
+    const currency = this.state.currency;
     this.setState({
-      stashAwayPortfolioData: createChartData(sampleSnP500Data),
+      stashAwayPortfolioData: createChartData(sampleSnP500Data, currency),
       benchmarkPortfolioName: "40% VTSMX (Stock) + 60% VBMFX (Bond)",
       benchmarkPortfolioStockName: "VTSMX - Vanguard Total Stock Market Index",
       benchmarkPortfolioBondName: "VTBMX - Vanguard Total Bond Market Index",
-      benchmarkPortfolioData: createChartData(sampleVanguardData)
+      benchmarkPortfolioData: createChartData(sampleVanguardData, currency)
     });
     this.updateStashAwayAndBenchmarkPortfolioData();
   };
 
   setiShares2080Data = () => {
+    const currency = this.state.currency;
     this.setState({
-      stashAwayPortfolioData: createChartData(sampleSnP500Data),
+      stashAwayPortfolioData: createChartData(sampleSnP500Data, currency),
       benchmarkPortfolioName: "20% IVV (Stock) + 80% GOVT (Bond)",
       benchmarkPortfolioStockName: "IVV - iShares Core S&P 500 ETF",
       benchmarkPortfolioBondName: "GOVT - iShares U.S. Treasury Bond ETF",
-      benchmarkPortfolioData: createChartData(sampleiSharesData)
+      benchmarkPortfolioData: createChartData(sampleiSharesData, currency)
     });
     this.updateStashAwayAndBenchmarkPortfolioData();
   };
 
   handleTimeFrameSelected = async timeFrame => {
+    const currency = this.state.currency;
     await this.setState({
       timeFrame
     });
     switch (this.state.benchmarkPortfolioName) {
       case "40% VTSMX (Stock) + 60% VBMFX (Bond)":
         this.setState({
-          stashAwayPortfolioData: createChartData(sampleSnP500Data),
-          benchmarkPortfolioData: createChartData(sampleVanguardData)
+          stashAwayPortfolioData: createChartData(sampleSnP500Data, currency),
+          benchmarkPortfolioData: createChartData(sampleVanguardData, currency)
         });
         break;
       case "20% IVV (Stock) + 80% GOVT (Bond)":
         this.setState({
-          stashAwayPortfolioData: createChartData(sampleSnP500Data),
-          benchmarkPortfolioData: createChartData(sampleiSharesData)
+          stashAwayPortfolioData: createChartData(sampleSnP500Data, currency),
+          benchmarkPortfolioData: createChartData(sampleiSharesData, currency)
         });
         break;
       default:
         this.setState({
-          stashAwayPortfolioData: createChartData(sampleSnP500Data),
-          benchmarkPortfolioData: createChartData(sampleVanguardData)
+          stashAwayPortfolioData: createChartData(sampleSnP500Data, currency),
+          benchmarkPortfolioData: createChartData(sampleVanguardData, currency)
         });
     }
     this.updateStashAwayAndBenchmarkPortfolioData();
@@ -164,8 +168,28 @@ export class PortfolioBenchmark extends React.Component {
     }
   };
 
-  handleCurrencyChange = currency => {
+  handleCurrencyChange = async currency => {
     this.setState({ currency });
+    switch (this.state.benchmarkPortfolioName) {
+      case "40% VTSMX (Stock) + 60% VBMFX (Bond)":
+        await this.setState({
+          stashAwayPortfolioData: createChartData(sampleSnP500Data, currency),
+          benchmarkPortfolioData: createChartData(sampleVanguardData, currency)
+        });
+        break;
+      case "20% IVV (Stock) + 80% GOVT (Bond)":
+        await this.setState({
+          stashAwayPortfolioData: createChartData(sampleSnP500Data, currency),
+          benchmarkPortfolioData: createChartData(sampleiSharesData, currency)
+        });
+        break;
+      default:
+        await this.setState({
+          stashAwayPortfolioData: createChartData(sampleSnP500Data, currency),
+          benchmarkPortfolioData: createChartData(sampleVanguardData, currency)
+        });
+    }
+    this.updateStashAwayAndBenchmarkPortfolioData();
   };
 
   render() {
