@@ -50,11 +50,6 @@ Before running any scripts, please install development dependencies:
 ```
 npm install
 ```
-Please also create a .env file in the root directory and add the code below with the api token after the equals symbol
-
-```
-REACT_APP_TRADING_DATA_TOKEN=
-```
 
 You can now use the application with the following command:
 
